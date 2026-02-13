@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+// 移除導致錯誤的 import emailjs from "@emailjs/browser";
 import {
   FlaskConical,
   Zap,
@@ -73,11 +74,9 @@ const IMAGES = {
     "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800",
   customWire:
     "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&q=80&w=800",
-  factoryInterior: "/qa.png",
-  rdLab: "/lab.png",
-  // CSS Sprite 大圖路徑
-  processSprites: "/process.png",
-  // 泡泡牆新圖片
+  factoryInterior: "qa.png", // 修正：移除前導斜線
+  rdLab: "lab.png", // 修正：移除前導斜線
+  processSprites: "process.png", // 修正：移除前導斜線
   bubbleWind:
     "https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&q=80&w=800",
   bubbleDrone:
@@ -198,21 +197,21 @@ const PRODUCTS_LIST = {
       name: "無機纖維紗線",
       params: { Denier: "20D ~ 400D" },
       desc: "成分：市售玻纖紗線、碳纖紗線",
-      image: "/無機纖維紗線.png",
+      image: "無機纖維紗線.png",
     },
     {
       id: "f2",
       name: " 有機纖維紗線",
       params: { Denier: "20D ~ 400D" },
       desc: "成分：市售LCP紗線、UHMPE紗線、PTFE紗線",
-      image: "/有機纖維紗線.png",
+      image: "有機纖維紗線.png",
     },
     {
       id: "f3",
       name: "有機無機複合纖維紗線",
       params: { Denier: "20D ~ 400D" },
       desc: "成分：自行開發的有機無機複合材料纖維紗線",
-      image: "/自研混合紗線.png",
+      image: "自研混合紗線.png",
     },
   ],
   injection: [
@@ -221,28 +220,28 @@ const PRODUCTS_LIST = {
       name: "聚芳酯纖維布",
       params: { 布重: "20 g/m²", 布厚: "70 um" },
       desc: " 經紗與緯紗均為LCP纖維紗線，紗線丹數與編織密度可依客戶需求調整。",
-      image: "/聚芳酯纖維布.png",
+      image: "聚芳酯纖維布.png",
     },
     {
       id: "i2",
       name: "複合材料纖維布",
       params: { 布重: "30 g/m²", 布厚: "70 um" },
       desc: "經紗與緯紗均為有機無機複合材料紗線，紗線丹數與編織密度可依客戶需求調整",
-      image: "/複合材料纖維布.png",
+      image: "複合材料纖維布.png",
     },
     {
       id: "i3",
       name: "有機高分子混紡布",
       params: { 布重: "25 g/m²", 布厚: "100 um" },
       desc: "經紗與緯紗可選擇不同的有機高分子纖維紗線，紗線丹數與編織密度可依客戶需求調整。",
-      image: "/有機高分子混紡布.png",
+      image: "有機高分子混紡布.png",
     },
     {
       id: "i4",
       name: "有機纖維無機纖維混紡布",
       params: { 布重: "35 g/m²", 布厚: "100 um" },
       desc: "經紗與緯紗可選擇不同的有機纖維紗線和無機纖維紗線，混合織成布面，紗線丹數與編織密度可依客戶需求調整。",
-      image: "/有機無機混紡布.png",
+      image: "有機無機混紡布.png",
     },
   ],
   composite: [
@@ -251,14 +250,14 @@ const PRODUCTS_LIST = {
       name: "耦合劑塗層織物",
       params: { 布重: "TBD" },
       desc: "依據下游工序所需，預先在胚布表面塗布耦合劑，經烘乾定型後出貨。",
-      image: "/耦合劑塗層織物.png",
+      image: "耦合劑塗層織物.png",
     },
     {
       id: "c2",
       name: "活性劑塗層織物",
       params: { 布重: "TBD" },
       desc: "依據下游應用場域的需求，預先在織物表面塗布活性劑，經烘乾定型後出貨",
-      image: "/活性劑塗層織物.png",
+      image: "活性劑塗層織物.png",
     },
   ],
 };
@@ -352,7 +351,7 @@ const PROCESS_STEPS = [
 const SilkonixLogo = ({ className = "h-8 md:h-10" }) => (
   <div className={`flex items-center gap-2 ${className}`}>
     <img
-      src="/logo.png"
+      src="logo.png" // 修正：移除前導斜線
       alt="Silkonix Logo"
       className="h-full w-auto object-contain"
     />
